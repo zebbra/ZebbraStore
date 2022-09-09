@@ -1,0 +1,24 @@
+.header {
+  width: 100%;
+  display: flex;
+  padding-bottom: 20px;
+
+  .img {
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  a {
+    margin-left: auto;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .checkout-button {
+    border: 10px solid red;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+  }
+}
