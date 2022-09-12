@@ -1,10 +1,13 @@
 kind: pipeline
 type: kubernetes
-name: default
+name: build
 
 steps:
   - name: greeting
     image: zebrastore
-    commands:
-      - echo hello
-      - echo world
+    settings:
+      username: username
+      password: password
+      registry: quay.io
+      repo: tim_zurbuchen/zebbra_store
+      file: Dockerfile
