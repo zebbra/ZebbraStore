@@ -10,5 +10,4 @@ name: publish
     tag: $$TAG
     file: Dockerfile
     when:
-    event: push
-    
+     event: push
