@@ -6,7 +6,7 @@ trigger:
   event: [push]
 
 steps:
-  -name: build
+  name: build
   image: plugins/docker
   settings:
     username: { from_secret: quay_username }
