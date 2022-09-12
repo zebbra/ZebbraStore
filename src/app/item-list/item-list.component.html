@@ -1,15 +1,20 @@
 <div class="list">
-    <ibm-structured-list>
-        <ibm-list-header>
-            <ibm-list-column [nowrap]="true">Product</ibm-list-column>
-            <ibm-list-column [nowrap]="true">Price</ibm-list-column>
-            <ibm-list-column>Description</ibm-list-column>
-        </ibm-list-header>
-        <ibm-list-row *ngFor="let product of products">
-            <ibm-list-column>{{product.name}}</ibm-list-column>
-            <ibm-list-column [nowrap]="true">{{product.price}}</ibm-list-column>
-            <ibm-list-column>{{product.description}}</ibm-list-column>
-            <button ibmButton="primary" [isExpressive]="true">Button</button>
-        </ibm-list-row>
-    </ibm-structured-list>
+  <ibm-structured-list>
+    <ibm-list-header>
+      <ibm-list-column [nowrap]="true">Product</ibm-list-column>
+      <ibm-list-column [nowrap]="true">Price</ibm-list-column>
+      <ibm-list-column>Description</ibm-list-column>
+    </ibm-list-header>
+    <ibm-list-row *ngFor="let product of products">
+      <ibm-list-column>{{ product.name }}</ibm-list-column>
+      <ibm-list-column [nowrap]="true">{{ product.price }}</ibm-list-column>
+      <ibm-list-column>{{ product.description }}</ibm-list-column>
+      <button
+        ibmButton="primary"
+        [isExpressive]="true"
+      >
+        Button
+      </button>
+    </ibm-list-row>
+  </ibm-structured-list>
 </div>
