@@ -3,11 +3,11 @@ type: kubernetes
 name: build
 
 steps:
-  - name: greeting
-    image: zebrastore
+  - name: build
+    image: plugins/docker
     settings:
-      username: username
-      password: password
+      username: { from_secret: username }
+      password: { from_secret: password }
       registry: quay.io
       repo: tim_zurbuchen/zebbra_store
       file: Dockerfile
