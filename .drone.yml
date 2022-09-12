@@ -7,10 +7,10 @@ trigger:
 
 steps:
   name: build
-  image: plugins/docker
+  image: zebbrastore
   settings:
-    username: { from_secret: quay_username }
-    passwor: { from_secret: quay_password }
+    username: quay_username
+    passwor: quay_password
     registry: quay.io
     repo: quay.io/tim_zurbuchen/zebbra_store
     mtu: 1316
