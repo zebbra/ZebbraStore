@@ -1,0 +1,14 @@
+kind: pipeline
+type: kubernetes
+name: publish
+  docker:
+    registry: quay.io
+    username: tim_zurbuchen
+    password: Redeemed3213!
+    email: tim.zurbuchen@zebbra.ch
+    repo: tim_zurbuchen/zebbra_store
+    tag: $$TAG
+    file: Dockerfile
+    when:
+    event: push
+    
