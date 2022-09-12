@@ -1,13 +1,16 @@
 kind: pipeline
 type: kubernetes
 name: publish
-  docker:
+
+trigger:
+  event: [push]
+
+steps:
+  -name: build
+  image: plugins/docker
+  settings:
+    username: quay_username
+    passwor: quay_password
     registry: quay.io
-    username: tim_zurbuchen
-    password: Redeemed3213!
-    email: tim.zurbuchen@zebbra.ch
-    repo: tim_zurbuchen/zebbra_store
-    tag: $$TAG
-    file: Dockerfile
-    when:
-     event: push
+    repo: quay.io/tim_zurbuchen/zebbra_store
+    mtu: 1316
