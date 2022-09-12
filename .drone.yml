@@ -9,7 +9,7 @@ steps:
   - name: test
     image: node:18.8-alpine
     commands:
-      - npm ci
+      - npm install
       - npm run lint
       - npm run test
       - npm run format
