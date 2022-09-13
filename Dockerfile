@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:18.8-alpine
 
 WORKDIR /usr/src/ZebbraStore
 
@@ -7,6 +7,8 @@ COPY package-lock.json package-lock.json
 
 RUN npm install
 
-COPY ./ ./
+COPY . .
 
-CMD ["/bin/bash"]
+RUN npm run build
+
+CMD ["npm", "run", "start"]

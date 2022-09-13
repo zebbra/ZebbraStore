@@ -1,20 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-
-// Import dummy data
-import { products } from '../products';
+import { Product, products } from "../products";
+import { CartService } from "../cart.service";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-item-list',
-  templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.scss']
+  selector: "app-item-list",
+  templateUrl: "./item-list.component.html",
+  styleUrls: ["./item-list.component.scss"],
 })
-export class ItemListComponent implements OnInit {
-
+export class ItemListComponent {
   products = products;
+  product: Product | undefined;
 
-  constructor() { }
+  constructor(private cartService: CartService) {}
 
-  ngOnInit(): void {
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    window.alert("Your product has been added to the cart!");
   }
-
 }

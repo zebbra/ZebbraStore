@@ -8,42 +8,41 @@ export interface Product {
 export const products = [
   {
     id: 1,
-    name: 'Shirt',
+    name: "Shirt",
     price: 29,
-    description: 'Not made in China'
+    description: "Not made in China",
   },
   {
     id: 2,
-    name: 'An actual zebra',
+    name: "An actual zebra",
     price: 2300,
-    description: 'Stable sold separately'
+    description: "Stable sold separately",
   },
   {
     id: 3,
-    name: 'Mug',
+    name: "Mug",
     price: 19,
-    description: 'Only works with coffee'
+    description: "Only works with coffee",
   },
   {
     id: 3,
-    name: 'Monitor',
+    name: "Monitor",
     price: 299,
-    description: 'Definitely 4k'
+    description: "Definitely 4k",
   },
   {
     id: 3,
-    name: 'Chair',
+    name: "Chair",
     price: 99,
-    description: "It should hold, but that's not guaranteed"
+    description: "It should hold, but that's not guaranteed",
   },
   {
     id: 3,
-    name: 'Shorts',
+    name: "Shorts",
     price: 29,
-    description: 'As good as shorts get'
-  }
+    description: "As good as shorts get",
+  },
 ];
-
 
 /*
 Copyright Google LLC. All Rights Reserved.
