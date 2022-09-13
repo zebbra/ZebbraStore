@@ -9,12 +9,16 @@
       <ibm-list-column>{{ product.name }}</ibm-list-column>
       <ibm-list-column [nowrap]="true">{{ product.price }}</ibm-list-column>
       <ibm-list-column>{{ product.description }}</ibm-list-column>
-      <button
-        ibmButton="primary"
-        [isExpressive]="true"
+      <ibm-list-column
+        ><button
+          ibmButton="secondary"
+          size="sm"
+          class="list-button"
+          (click)="addToCart(product)"
+        >
+          Add to cart
+        </button></ibm-list-column
       >
-        Button
-      </button>
     </ibm-list-row>
   </ibm-structured-list>
 </div>

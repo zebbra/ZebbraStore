@@ -1,7 +1,6 @@
+import { Product, products } from "../products";
+import { CartService } from "../cart.service";
 import { Component } from "@angular/core";
-
-// Import dummy data
-import { products } from "../products";
 
 @Component({
   selector: "app-item-list",
@@ -10,7 +9,12 @@ import { products } from "../products";
 })
 export class ItemListComponent {
   products = products;
-  hi() {}
+  product: Product | undefined;
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    window.alert("Your product has been added to the cart!");
+  }
 }

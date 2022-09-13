@@ -1,0 +1,21 @@
+.cart {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+
+  ibm-tile {
+    text-align: center;
+    margin: 7px 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      margin: auto;
+    }
+  }
+}
+
+.header {
+  margin: auto;
+}
