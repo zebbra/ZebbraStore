@@ -26,17 +26,8 @@ export class CartService {
   }
 
   deleteProductFromCart(productToDelete: Product) {
-    let found = false;
-
-    this.items.forEach(product => {
-      if (!found) {
-        if (product.id === productToDelete.id) {
-          const spliceIndex = this.items.indexOf(productToDelete);
-          this.items.splice(spliceIndex, 1);
-          found = true;
-        }
-      }
-    });
+    const spliceIndex = this.items.indexOf(productToDelete);
+    this.items.splice(spliceIndex, 1);
   }
 
   constructor(private http: HttpClient) {}

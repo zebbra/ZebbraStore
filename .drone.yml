@@ -15,7 +15,69 @@ steps:
       - npm run format
 
 ---
+kind: pipelinekind: pipeline
+type: kubernetes
+name: test
+
+trigger:
+  event: [push, pull_request]
+
+steps:
+  - name: test
+    image: node:18.8
+    commands:
+      # Note that this way of testing is less efficient due to inability to cache dependencies.
+      # To run tests, you need a browser :-) This will be even more inefficient because we do software installation
+      # every time we run a CI-build
+      - apt-get update -y
+      - apt-get install chromium -y
+      - export CHROME_BIN=chromium
+      - npm install
+      - npm run lint
+      - npm run format
+      - PATH="./node_modules/.bin:$PATH" ng test --browsers ChromeHeadlessCI --code-coverage=true --watch=false
+
+---
 kind: pipeline
+type: kubernetes
+name: build
+
+trigger:
+  event: [push, pull_request]
+
+_docker_defaults: &docker_defaults
+  image: plugins/docker
+  settings:
+    username: { from_secret: quay_username }
+    password: { from_secret: quay_password }
+    registry: quay.io
+    repo: quay.io/zebbra/zebbra_store
+    build_args_from_env:
+      - DRONE_COMMIT_SHA
+    mtu: 1316
+
+depends_on:
+  - test
+
+steps:
+  - name: builder
+    <<: *docker_defaults
+    settings:
+      tags: builder
+      target: builder
+      cache_from:
+        - quay.io/zebbra/zebbra_store:builder
+      mtu: 1316
+  - name: build
+    <<: *docker_defaults
+    settings:
+      custom_labels: [quay.expires-after=4w]
+      tags: "git-${DRONE_COMMIT_SHA:0:7},latest"
+      cache_from:
+        - quay.io/zebbra/zebbra_store:builder
+      mtu: 1316
+      build_args:
+        - VERSION=${DRONE_COMMIT_SHA:0:7}
 type: kubernetes
 name: build
 
